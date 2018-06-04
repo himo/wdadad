@@ -40,6 +40,8 @@ public class himoMod {
 	public void init(FMLInitializationEvent event) {
 		System.out.println("himodesu");
 		MinecraftForge.EVENT_BUS.register(this);
+		AimDisplay.taima1();
+		AimDisplay.kousinn1();
 		ClientCommandHandler.instance.registerCommand(new himoGUICommand());
 		if(!propertiesFile.exists()) {//フォルダがなかったら
 			try {
@@ -204,5 +206,6 @@ public class himoMod {
 		PerunCD.playPerunCDGO();
 		PerunCDGUI.testPerunCD();
 		ShowUHCKills.killsrender();
+		AimDisplay.playkaunnto();
 	}
 }

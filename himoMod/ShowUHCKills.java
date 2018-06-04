@@ -10,7 +10,7 @@ public class ShowUHCKills {
 	static String[] uhcKiller = new String [ninn];
 	static int[] uhcKills = new int [ninn];
 
-	static String[] Stringp0karap5 = {"zero", "iti", "ni", "sann", "yon", "go"};
+	static String[] Stringp0karap5 = {"", "", "", "", "", ""};
 	static String[] intp0karap5 = {"0", "1", "2", "3", "4", "5", "6"};
 
 	private static boolean isRender = true;
@@ -19,9 +19,7 @@ public class ShowUHCKills {
 	private static int migihidarimannaka = 0;
 
 	public static void killsrender() {
-		System.out.println("1");
 		if(!isRender) return;
-		System.out.println("2");
 		int integer = y;
 		int integerx = x;
 		for(int i=0; i< Stringp0karap5.length; i++){
@@ -36,10 +34,16 @@ public class ShowUHCKills {
 	public static void uhckillshyouzi(String arg) {//UHCで相手の名前が出たらそいつのkill数を表示
 		for(int i=0; i< ninn; i++){
     		if (arg.equals(uhcKiller[i])) {
-    			for(int u=0; u< Stringp0karap5.length; u++){
+    			for(int u=0; u< Stringp0karap5.length; u++){//配列の名前検索して回す
+    				for(int e=0; e< Stringp0karap5.length; e++){//配列の中に同じ文字があったらそこを""にする
+    					if (Stringp0karap5[u].equals(arg)) {
+    						Stringp0karap5[u] = "";
+    					}
+    				}
     				if (Stringp0karap5[u].equals("")) {
     					Stringp0karap5[u] = arg;
     					intp0karap5[u] = String.valueOf(uhcKills[i]);
+    					break;
     				}
     			}
     			Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("/" + arg + "/は" + uhcKills[i] + "Killしています"));
